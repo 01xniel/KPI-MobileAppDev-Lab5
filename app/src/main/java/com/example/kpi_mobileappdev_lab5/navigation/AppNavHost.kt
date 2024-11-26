@@ -65,7 +65,7 @@ fun AppNavHost() {
                 Calc1ResultScreen(
                     sharedViewModel = sharedViewModel,
                     toCalc1InputScreen = {
-                        // повернення до екрану вводу параметрів калькулятор #1
+                        // повернення до екрану вводу параметрів калькулятора #1
                         if (navController.previousBackStackEntry != null) {
                             navController.popBackStack()
                         }
@@ -104,7 +104,7 @@ fun AppNavHost() {
                 Calc2ResultScreen(
                     sharedViewModel = sharedViewModel,
                     toCalc2InputScreen = {
-                        // повернення до екрану вводу параметрів калькулятор #2
+                        // повернення до екрану вводу параметрів калькулятора #2
                         if (navController.previousBackStackEntry != null) {
                             navController.popBackStack()
                         }
