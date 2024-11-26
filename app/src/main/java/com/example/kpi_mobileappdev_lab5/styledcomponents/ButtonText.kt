@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -15,7 +14,6 @@ fun ButtonText(text: String) {
         text,
         fontSize = 16.sp,
         lineHeight = 25.sp,
-        textAlign = TextAlign.Justify,
         modifier = Modifier.padding(vertical = 15.5.dp)
     )
 }
