@@ -2,6 +2,7 @@ package com.example.kpi_mobileappdev_lab5.viewmodels
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 
 class Calc2SharedViewModel: ViewModel() {
     // потік для збереження параметрів другого калькулятора у вигляді ключ-значення
@@ -18,7 +19,7 @@ class Calc2SharedViewModel: ViewModel() {
         )
     )
     // публічний доступ до параметрів другого калькулятора (тільки читання)
-    val parameters = _parameters
+    val parameters = _parameters.asStateFlow()
 
     // функція оновлення параметрів другого калькулятора
     fun updateParameters(updatedParameters: LinkedHashMap<String, String>) {
