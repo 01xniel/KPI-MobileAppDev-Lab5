@@ -96,6 +96,7 @@ fun AppNavHost() {
                     }
                 )
             }
+            // екран результатів калькулятора #2
             composable(Calc2ResultRoute) {
                 // ініціалізація viewmodel для роботи з вхідними даними калькулятора #2
                 val sharedViewModel: Calc2SharedViewModel = viewModel(
