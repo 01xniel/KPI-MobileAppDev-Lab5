@@ -31,14 +31,14 @@ fun Calc2ResultScreen(
     // результати розрахунку збитків, що спричинені перервами в електропостачанні
     val results = sharedViewModel.evaluate()
 
-    // hashmap, що зберігає текстові описи кожного зі значень отриманого результату
+    // текстові описи кожного зі значень отриманого результату
     val resultsDescriptions = hashMapOf(
         "expectedOutagesScheduled" to "Очікується, що планове недовідпущення електроенергії складе",
         "expectedOutagesEmergency" to "Очікується, що аварійне недовідпущення електроенергії складе",
         "expectedLosses" to "Очікуване значення збитків від перерв електропостачання"
     )
 
-    // hashmap, що зберігає одиниці вимірювання кожного зі значень отриманого результату
+    // одиниці вимірювання кожного зі значень отриманого результату
     val resultsUnits = hashMapOf(
         "expectedOutagesScheduled" to "кВт⋅год.",
         "expectedOutagesEmergency" to "кВт⋅год.",

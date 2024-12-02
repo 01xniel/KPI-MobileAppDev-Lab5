@@ -5,9 +5,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 class Calc2SharedViewModel: ViewModel() {
-    // потік для збереження параметрів другого калькулятора у вигляді ключ-значення
+    // mutablestateflow для збереження параметрів другого калькулятора
     private val _parameters = MutableStateFlow(
-        // linkedhashmap для збереження порядку
         linkedMapOf(
             "lossesEmergency" to "23.6",
             "lossesScheduled" to "17.6",
@@ -18,10 +17,11 @@ class Calc2SharedViewModel: ViewModel() {
             "averagePlannedDowntime" to "0.004"
         )
     )
-    // публічний доступ до параметрів другого калькулятора (тільки читання)
+    // stateflow для доступу до значень параметрів другого калькулятора
+    // без можливості безпосередньо їх змінювати
     val parameters = _parameters.asStateFlow()
 
-    // функція оновлення параметрів другого калькулятора
+    // функція оновлення значень параметрів другого калькулятора
     fun updateParameters(updatedParameters: LinkedHashMap<String, String>) {
         _parameters.value = updatedParameters
     }

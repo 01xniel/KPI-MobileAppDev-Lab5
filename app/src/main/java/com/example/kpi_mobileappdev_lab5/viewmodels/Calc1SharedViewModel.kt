@@ -5,9 +5,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 class Calc1SharedViewModel: ViewModel() {
-    // потік для збереження параметрів першого калькулятора у вигляді ключ-значення
+    // mutablestateflow для збереження параметрів першого калькулятора
     private val _parameters = MutableStateFlow(
-        // linkedhashmap для збереження порядку
         linkedMapOf(
             "pl110Q" to "10",
             "pl35Q" to "0",
@@ -27,15 +26,16 @@ class Calc1SharedViewModel: ViewModel() {
             "ed038Q" to "0"
         )
     )
-    // публічний доступ до параметрів першого калькулятора (тільки читання)
+    // stateflow для доступу до значень параметрів першого калькулятора
+    // без можливості безпосередньо їх змінювати
     val parameters = _parameters.asStateFlow()
 
-    // функція оновлення параметрів першого калькулятора
+    // функція оновлення значень параметрів першого калькулятора
     fun updateParameters(updatedParameters: LinkedHashMap<String, String>) {
         _parameters.value = updatedParameters
     }
 
-    // функція розрахунку частот відмов одноколової та двоколової систем для подальшого їх порівняння
+    // функція розрахунку частот відмов одноколової та двоколової систем
     fun evaluate(): LinkedHashMap<String, Double> {
         // клас для зберігання даних показників надійності
         data class ReliabilityIndicatorData(

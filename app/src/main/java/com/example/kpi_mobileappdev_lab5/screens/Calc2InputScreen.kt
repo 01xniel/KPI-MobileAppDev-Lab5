@@ -31,7 +31,7 @@ import com.example.kpi_mobileappdev_lab5.styledcomponents.CustomButton
 import com.example.kpi_mobileappdev_lab5.styledcomponents.CustomTextField
 import com.example.kpi_mobileappdev_lab5.styledcomponents.HeaderText
 
-// функція перевірки валідності введеного значення в текстовому полі
+// функція перевірки коректності введеного значення в текстовому полі
 fun isNewValueValid(value: String): Boolean {
     return if (value.isEmpty()) {
         true
@@ -48,10 +48,10 @@ fun Calc2InputScreen(
     toCalc2ResultScreen: () -> Unit,
     toCalcSelection: () -> Unit
 ) {
-    // змінна для зберігання поточного стану параметрів другого калькулятора
+    // отримання параметрів другого калькулятора з sharedViewModel
     val parameters by sharedViewModel.parameters.collectAsStateWithLifecycle()
 
-    // hashmap для зберігання міток текстових полів другого калькулятора у вигляді ключ-значення
+    // назви параметрів
     val textFieldLabels = hashMapOf(
         "lossesEmergency" to "Збитки (аварійні відключення)",
         "lossesScheduled" to "Збитки (планові відключення)",
@@ -62,10 +62,10 @@ fun Calc2InputScreen(
         "averagePlannedDowntime" to "Середній час планового простою",
     )
 
-    // отримання поточного контексту
+    // поточний контекст застосунку
     val context = LocalContext.current
 
-    // головний контейнер екрану для введення значень калькулятора #2
+    // головний контейнер екрану для введення параметрів калькулятора #2
     Column (
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,

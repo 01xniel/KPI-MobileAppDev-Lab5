@@ -30,10 +30,9 @@ fun Calc1ResultScreen(
     toCalc1InputScreen: () -> Unit
 ) {
     // результати розрахунку частот відмов одноколової та двоколової систем
-    // для подальшого їх порівняння
     val results = sharedViewModel.evaluate()
 
-    // hashmap, що зберігає текстові описи кожного зі значень отриманого результату
+    // текстові описи кожного зі значень отриманого результату
     val resultsDescriptions = hashMapOf(
         "failureRateSCS" to "Частота відмов одноколової системи",
         "averageRecoveryTime" to "Середня тривалість відновлення одноколової системи",
@@ -43,7 +42,7 @@ fun Calc1ResultScreen(
         "failureRateWithSectionalizerTCS" to "Частота відмов двоколової системи (враховуючи секційний вимикач)"
     )
 
-    // hashmap, що зберігає одиниці вимірювання кожного зі значень отриманого результату
+    // одиниці вимірювання кожного зі значень отриманого результату
     val resultsUnits = hashMapOf(
         "failureRateSCS" to "рік⁻¹",
         "averageRecoveryTime" to "год.",
@@ -53,8 +52,8 @@ fun Calc1ResultScreen(
         "failureRateWithSectionalizerTCS" to "рік⁻¹"
     )
 
-    // головний контейнер екрану для виведення результатів розрахунку збитків, що
-    // спричинені перервами в електропостачанні
+    // головний контейнер екрану для виведення результатів розрахунку частот відмов
+    // одноколової та двоколової систем
     Column (
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,

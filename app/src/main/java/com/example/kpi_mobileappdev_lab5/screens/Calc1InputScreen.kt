@@ -37,10 +37,10 @@ fun Calc1InputScreen(
     toCalc1ResultScreen: () -> Unit,
     toCalcSelection: () -> Unit
 ) {
-    // змінна для зберігання поточного стану параметрів першого калькулятора
+    // отримання параметрів першого калькулятора з sharedViewModel
     val parameters by sharedViewModel.parameters.collectAsStateWithLifecycle()
 
-    // hashmap для зберігання міток текстових полів першого калькулятора у вигляді ключ-значення
+    // назви параметрів
     val textFieldLabels = hashMapOf(
         "pl110Q" to "ПЛ-110 кВ",
         "pl35Q" to "ПЛ-35 кВ",
@@ -60,10 +60,10 @@ fun Calc1InputScreen(
         "ed038Q" to "ЕД-0.38 кВ"
     )
 
-    // отримання поточного контексту
+    // поточний контекст застосунку
     val context = LocalContext.current
 
-    // головний контейнер екрану для введення значень калькулятора #1
+    // головний контейнер екрану для введення параметрів калькулятора #1
     Column (
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
@@ -80,7 +80,7 @@ fun Calc1InputScreen(
         Spacer(modifier = Modifier.height(16.dp))
         BodyText(
             text = AnnotatedString("Калькулятор для порівняння " +
-                    "надійності одноколової та двоколової систем електропередачі "),
+                    "надійності одноколової та двоколової систем електропередачі"),
             modifier = Modifier.fillMaxWidth(0.8f)
         )
 
